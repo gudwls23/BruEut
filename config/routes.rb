@@ -1,17 +1,54 @@
 Rails.application.routes.draw do
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
+  get 'signout', to: 'sessions#destroy', as: 'signout'
+
+  resources :sessions, only: [:create, :destroy]
+  resources :markets do
+    resources :mcomments
+  end
+  resources :pointlesses do
+    resources :pcomments
+  end
+  mount Ckeditor::Engine => '/ckeditor'
   resources :events
-  devise_for :users
-  root "post#index"
-  get 'post/index'
-  get 'like' => 'post#like'
+  resources :forests do
+    resources :fcomments
+  end
+  get 'main/rindex'
+  get 'pointless/rindex' => 'main#rindex'
+  post 'pointlesses/like'
+  post 'pointlesses/dislike'
+  root "main#dashboard"
 
-  post 'create' => 'post#create'
+  post 'markets/like'
+  post 'markets/dislike'
+  get 'main/mrindex'
+  get 'market/mrindex' => 'main#mrindex'
 
-  get "like/:post_id" => "post#like"
-  get "unlike/:post_id" => "post#unlike"
+  get 'partypost' => 'partypost#index'
+  get 'partylike' => 'partypost#partylike'
 
-  get "join/:post_id" => "post#join"
-  get "disjoin/:post_id" => "post#disjoin"
+  post 'partycreate' => 'partypost#partycreate'
+
+  get "partylike/:post_id" => "partypost#partylike"
+  get "partyunlike/:post_id" => "partypost#partyunlike"
+
+  get "partyjoin/:post_id" => "partypost#partyjoin"
+  get "partydisjoin/:post_id" => "partypost#partydisjoin"
+
+
+  get 'search/index'
+
+  get 'home/index'
+  post'upload' => "home#upload_post"
+  post'comment' => "home#comment"
+  get 'search', to: "search#index"
+
+
+  get 'main/dashboard'
+  get 'forests/maketrue'
+  get'maketrue' => 'forests#maketrue'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

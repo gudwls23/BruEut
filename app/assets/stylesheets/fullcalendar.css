@@ -35,6 +35,37 @@ body .fc { /* extra precedence to overcome jqui */
 	border-color: #ddd;
 }
 
+table tr td div.fc-content{
+	text-align: center;
+	height: 50px;
+	font-size: 13px;
+}
+
+table tr td div.fc-content span.fc-time{
+	padding-top: 2%;
+	display: block;
+}
+table tr td div.fc-content span.fc-title{
+	display:block;
+
+}
+
+.fc-unthemed thead tr td.fc-head-container{
+	border-color: #357ebd;
+	border-bottom: 5px solid #428bca;
+	height: 10vh;
+	background-color:#428bca;
+	border-right-color: #357ebd;
+	border-left-color: #357ebd;
+}
+
+.fc-unthemed thead tr td.fc-head-container th{
+	font-size: 25px;
+	padding-top: 2%;
+	color: white;
+}
+
+
 .fc-unthemed .fc-popover {
 	background-color: #fff;
 }
@@ -184,19 +215,27 @@ NOTE: use percentage font sizes or else old IE chokes
 
 /* Firefox has an annoying inner border */
 .fc button::-moz-focus-inner { margin: 0; padding: 0; }
-	
+
 .fc-state-default { /* non-theme */
 	border: 1px solid;
+}
+
+.fc-prev-button.fc-button.fc-state-default.fc-corner-left.fc-corner-right{
+	margin-left: 10%;
+	margin-right: 10%;
 }
 
 .fc-state-default.fc-corner-left { /* non-theme */
 	border-top-left-radius: 4px;
 	border-bottom-left-radius: 4px;
+	display: inline;
 }
 
 .fc-state-default.fc-corner-right { /* non-theme */
 	border-top-right-radius: 4px;
 	border-bottom-right-radius: 4px;
+	display: inline;
+	margin-left: 10%;
 }
 
 /* icons in buttons */
@@ -207,7 +246,7 @@ NOTE: use percentage font sizes or else old IE chokes
 	margin: 0 .2em;
 	vertical-align: middle;
 }
-	
+
 /*
   button states
   borrowed from twitter bootstrap (http://twitter.github.com/bootstrap/)
@@ -428,7 +467,7 @@ a[data-goto]:hover {
 	border-right: 0 hidden transparent;
 
 	/* no bottom borders on rows */
-	border-bottom: 0 hidden transparent; 
+	border-bottom: 0 hidden transparent;
 }
 
 .fc-row:first-child table {
@@ -790,7 +829,6 @@ a.fc-more:hover {
 	padding: 10px;
 }
 
-
 /* Now Indicator
 --------------------------------------------------------------------------------------------------*/
 
@@ -831,7 +869,8 @@ a.fc-more:hover {
 }
 
 .fc-toolbar .fc-left {
-	float: left;
+	margin-left: 10%;
+	width: 70%;
 }
 
 .fc-toolbar .fc-right {
@@ -852,7 +891,7 @@ a.fc-more:hover {
 .fc .fc-toolbar > * > :first-child { /* extra precedence to override button border margins */
 	margin-left: 0;
 }
-	
+
 /* title text */
 
 .fc-toolbar h2 {
@@ -869,7 +908,7 @@ a.fc-more:hover {
 .fc-toolbar .ui-state-hover {
 	z-index: 2;
 }
-	
+
 .fc-toolbar .fc-state-down {
 	z-index: 3;
 }
@@ -1411,3 +1450,37 @@ be a descendant of the grid when it is being dragged.
 .fc-unthemed .fc-list-empty { /* theme will provide own background */
 	background-color: #eee;
 }
+
+/*HJ's work*/
+.fc-left{
+	width: 100%;
+	z-index: 3;
+
+}
+.fc-prev-button{
+	left: 10%;
+}
+.fc-next-button{
+	left: 65%;
+}
+.fc-unthemed{
+	width: 90%;
+	position: relative;
+	left: 5%;
+}
+.fc-today-button{
+	visibility: hidden;
+}
+.fc-center{
+	position: absolute;
+	width: 50%;
+	left: 41%;
+	z-index: -1;
+}
+/*th.fc-day-header.fc-widget-header.fc-sun{
+	background-color: rgba(255,86,115,0.30);
+	height: 100px;
+}
+th.fc-day-header.fc-widget-header.fc-sat{
+	background-color: rgba(29,117,217,0.30);
+}*/

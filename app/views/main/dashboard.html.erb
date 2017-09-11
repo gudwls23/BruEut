@@ -1,0 +1,42 @@
+
+<head>
+  <%= stylesheet_link_tag "login.css" %>
+  <style>
+    footer {
+      display: none;
+    }
+  </style>
+</head>
+
+<body class = "back">
+  <%=render 'layouts/blackbar'%>
+
+  <div class="box">
+    <div class="border-form-div-2" style="text-align:center">
+        <% if current_user %>
+          <h4 style="text-align:center">안녕하세요 <%=current_user.name %>님</h4>
+          <br>
+            <%= link_to "내정보", root_path %><br>
+            <%= link_to "로그아웃", signout_path, id: "sign_out" %>
+          <% else %>
+            <%= link_to "/auth/google_oauth2", id: "sign_in" do %>
+            <div class="glogin"></div>
+            <% end %>
+
+          <% end %>
+    </div>
+    <div class="Iam">
+        <b>
+          <div class="innerIam">
+            <br />
+            원하는 수업, 교수 찾을 때<br />
+            룸메, 또는 아파트 찾을 때<br />
+            인원이 더 필요할 때<br />
+            대숲 사연이 궁금할 때<br />
+            </div>
+        </b>
+        <br><br>
+        <p class="intro">답은 = 브루이웃</p>
+
+    </div>
+</body>
