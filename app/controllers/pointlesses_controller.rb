@@ -76,7 +76,8 @@ class PointlessesController < ApplicationController
     @pointless.dislike = 0
     respond_to do |format|
       if @pointless.save
-        format.html { redirect_to @pointless, notice: 'Pointless was successfully created.' }
+        # format.html { redirect_to @pointless, notice: 'Pointless was successfully created.' }
+        format.html { redirect_to @pointless, notice: '' }
         format.json { render :show, status: :created, location: @pointless }
       else
         format.html { render :new }
@@ -91,7 +92,8 @@ class PointlessesController < ApplicationController
   def update
     respond_to do |format|
       if @pointless.update(pointless_params)
-        format.html { redirect_to @pointless, notice: 'Pointless was successfully updated.' }
+        # format.html { redirect_to @pointless, notice: 'Pointless was successfully updated.' }
+        format.html { redirect_to @pointless, notice: '' }
         format.json { render :show, status: :ok, location: @pointless }
       else
         format.html { render :edit }
@@ -105,7 +107,8 @@ class PointlessesController < ApplicationController
   def destroy
     @pointless.destroy
     respond_to do |format|
-      format.html { redirect_to pointlesses_url, notice: 'Pointless was successfully destroyed.' }
+      # format.html { redirect_to pointlesses_url, notice: 'Pointless was successfully destroyed.' }
+      format.html { redirect_to pointlesses_url, notice: '' }
       format.json { head :no_content }
     end
   end
