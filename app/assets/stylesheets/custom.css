@@ -28,7 +28,7 @@ p, td{
   width: 50%;
   display: flex;
   justify-content: center;
-  margin-left: 19%;
+  margin-right: 19%;
 }
 
 .textholder a:hover {
@@ -42,7 +42,7 @@ p, td{
   margin: 2% 5% 2% 5%;
 
   /*padding-left: 4%;*/
-  font-size: 18px;
+  font-size: 17px;
   color: white;
   display: inline-block;
   text-align: center;
